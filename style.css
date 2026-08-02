@@ -88,16 +88,24 @@ body {
 .steam {
     font-size: 2.5rem;
     animation: float 2s infinite ease-in-out;
+
 }
 .kottu-bowl {
-    width: 220px;
-    height: 110px;
-    background: linear-gradient(#ea580c, #9a3412);
+    width: 240px;
+    height: 120px;
+    background: linear-gradient(135deg, #ea580c, #9a3412);
     margin: 0 auto;
-    border-radius: 0 0 110px 110px;
-    border: 8px solid #fef08a;
+    border-radius: 0 0 120px 120px; /* යට කොටස ලස්සනට රවුම් කරන්න */
+    border: 8px solid #fde047;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     position: relative;
-    padding-top: 15px;
+    overflow: visible; /* ඇතුලේ තියෙන දේවල් කැපෙන්නේ නැති වෙන්න */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 }
 .cheese-layer {
     font-size: 1.5rem;
