@@ -2,159 +2,251 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a, #1e1b4b); /* තද නිල් රෑ අහස */
+    background: linear-gradient(180deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
     color: #f1f5f9;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
 }
 
-/* Cozy Lamp Effect */
+/* 1. Lamp & Soft Light Beam */
 .lamp-container {
     position: absolute;
     top: 0;
-    right: 10%;
+    right: 12%;
     z-index: 1;
 }
 .lamp {
-    width: 80px;
-    height: 50px;
-    background: #e11d48; /* රතු පාට ලාම්පුව */
-    border-radius: 50px 50px 0 0;
+    width: 90px;
+    height: 55px;
+    background: #e11d48;
+    border-radius: 90px 90px 0 0;
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.5);
 }
 .light-beam {
-    width: 200px;
+    width: 280px;
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(253, 224, 71, 0.3), rgba(253, 224, 71, 0));
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-    transform: translateX(-60px);
+    background: linear-gradient(to bottom, rgba(254, 240, 138, 0.25) 0%, rgba(254, 240, 138, 0.05) 60%, rgba(254, 240, 138, 0) 100%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    transform: translateX(-95px);
+    pointer-events: none;
 }
 
-/* Window & Moon */
+/* 2. Window, Glowing Moon & Twinkling Stars */
 .window {
     position: absolute;
-    top: 40px;
-    left: 40px;
-    width: 120px;
-    height: 120px;
-    border: 4px solid #334155;
+    top: 50px;
+    left: 50px;
+    width: 140px;
+    height: 140px;
+    border: 6px solid #334155;
     background: #1e293b;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 10px 25px rgba(0,0,0,0.3);
+}
+.window-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-right: 3px solid #334155;
+    border-bottom: 3px solid #334155;
+    pointer-events: none;
 }
 .moon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: #fef08a;
     border-radius: 50%;
     position: absolute;
     top: 20px;
-    left: 40px;
-    box-shadow: 0 0 15px #fef08a;
+    left: 45px;
+    animation: moonGlow 4s infinite ease-in-out; /* හඳ දිලිසෙන ඇනිමේෂන් එක */
 }
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+}
+/* තරු වෙන වෙනම නිවී නිවී පෙනෙන ඇනිමේෂන් */
+.s1 { top: 25px; left: 20px; animation: twinkle 1.5s infinite ease-in-out; }
+.s2 { top: 80px; left: 30px; animation: twinkle 2s infinite ease-in-out 0.5s; }
+.s3 { top: 90px; left: 100px; animation: twinkle 2.5s infinite ease-in-out 1s; }
 
-/* Main Content Typography */
+/* 3. Typography Entrance */
 .main-content {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 120px;
     position: relative;
     z-index: 2;
+    animation: fadeInUp 1.2s ease-out; /* මුළු පිටුවම උඩට පාවෙලා එන එක */
 }
 .subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 3px;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
     color: #94a3b8;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 .title {
-    font-size: 3.5rem;
-    color: #fef08a; /* කහ පාට Title එක */
+    font-size: 4rem;
+    color: #fde047;
     font-weight: 700;
+    text-shadow: 0 4px 12px rgba(253, 224, 71, 0.3);
 }
 .sinhala-sub {
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 40px;
 }
 
-/* Kottu Bowl Art */
-.bowl-container {
-    margin: 20px auto;
+/* 4. Beautiful Kottu Bowl & Real CSS Steam */
+.bowl-wrapper {
+    position: relative;
+    width: 260px;
+    margin: 0 auto;
+    animation: floatBowl 4s infinite ease-in-out;
 }
-.steam {
-    font-size: 2.5rem;
-    animation: float 2s infinite ease-in-out;
+.steam-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: -5px;
+}
+.steam-line {
+    width: 4px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    filter: blur(1px);
+}
+.line1 { animation: steamUp 2s infinite ease-in-out 0.2s; }
+.line2 { animation: steamUp 2s infinite ease-in-out 0.6s; }
+.line3 { animation: steamUp 2s infinite ease-in-out 0.4s; }
 
-}
 .kottu-bowl {
     width: 240px;
     height: 120px;
-    background: linear-gradient(135deg, #ea580c, #9a3412);
+    background: linear-gradient(135deg, #b45309, #78350f);
     margin: 0 auto;
-    border-radius: 0 0 120px 120px; /* යට කොටස ලස්සනට රවුම් කරන්න */
+    border-radius: 0 0 120px 120px;
     border: 8px solid #fde047;
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     position: relative;
-    overflow: visible; /* ඇතුලේ තියෙන දේවල් කැපෙන්නේ නැති වෙන්න */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.cheese-melt {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 15px;
+    background: #facc15;
+    border-radius: 0 0 10px 10px;
+    animation: cheesePulse 3s infinite ease-in-out; /* චීස් වැගිරෙන පෙනුම */
+}
+.food-details {
+    font-size: 2.2rem;
+    margin-top: 10px;
+}
 
+.chopstick {
+    position: absolute;
+    height: 6px;
+    background: #d97706;
+    border-radius: 3px;
 }
-.cheese-layer {
-    font-size: 1.5rem;
-    display: block;
-}
-.ingredients {
-    font-size: 1.2rem;
-}
+.c1 { width: 220px; top: -15px; left: 20px; transform: rotate(-15deg); }
+.c2 { width: 220px; top: -5px; left: 10px; transform: rotate(-5deg); }
 
-/* Calculator Card */
+/* 5. Glassmorphism Card for Calculator */
 .calculator-card {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(30, 41, 59, 0.55);
+    backdrop-filter: blur(12px);
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
-.input-group {
-    margin: 15px 0;
+.calculator-card h3 {
+    color: #fde047;
+    margin-bottom: 15px;
 }
 input {
-    padding: 5px;
-    width: 60px;
+    padding: 6px 12px;
+    width: 70px;
     background: #0f172a;
-    color: white;
-    border: 1px solid #fef08a;
-    border-radius: 4px;
+    color: #fde047;
+    font-weight: bold;
+    border: 2px solid #fde047;
+    border-radius: 8px;
     text-align: center;
+    font-size: 1.1rem;
 }
 .ingredients-list {
     list-style: none;
     text-align: left;
-    max-width: 200px;
+    max-width: 260px;
     margin: 0 auto;
 }
 .ingredients-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #cbd5e1;
 }
 .ingredients-list span {
-    color: #fef08a;
+    color: #fde047;
     font-weight: bold;
 }
 
-/* Animations */
-@keyframes float {
-    0% { transform: translateY(0px); opacity: 0.5; }
-    50% { transform: translateY(-10px); opacity: 1; }
-    100% { transform: translateY(0px); opacity: 0.5; }
+/* ==========================================
+   ✨ මෙන්න සුපිරි CSS ANIMATIONS KEYFRAMES ටික 
+   ========================================== */
+
+/* හඳ වටේ එළිය මෘදුව නිවී නිවී පෙනීම */
+@keyframes moonGlow {
+    0%, 100% { box-shadow: 0 0 20px #fef08a, 0 0 40px rgba(254, 240, 138, 0.3); }
+    50% { box-shadow: 0 0 35px #fef08a, 0 0 70px rgba(254, 240, 138, 0.6); }
+}
+
+/* තරු දිලිසීම */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* කෝප්පය හෙමින් පාවීම */
+@keyframes floatBowl {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* දුම් රේඛා උඩට යාම */
+@keyframes steamUp {
+    0% { transform: translateY(5px) scaleY(0.7); opacity: 0; }
+    50% { transform: translateY(-15px) scaleY(1.2); opacity: 0.4; }
+    100% { transform: translateY(-30px) scaleY(0.5); opacity: 0; }
+}
+
+/* චීස් තට්ටුව මෘදුව ස්පන්දනය වීම */
+@keyframes cheesePulse {
+    0%, 100% { height: 15px; box-shadow: 0 4px 8px rgba(250, 204, 21, 0.4); }
+    50% { height: 18px; box-shadow: 0 6px 14px rgba(250, 204, 21, 0.6); }
+}
+
+/* මුලින්ම සයිට් එකට එද්දී උඩට පාවී ඒම */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
