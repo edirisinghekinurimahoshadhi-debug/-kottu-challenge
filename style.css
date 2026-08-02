@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b); /* තද නිල් රෑ අහස */
+    color: #f1f5f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cozy Lamp Effect */
+.lamp-container {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    z-index: 1;
+}
+.lamp {
+    width: 80px;
+    height: 50px;
+    background: #e11d48; /* රතු පාට ලාම්පුව */
+    border-radius: 50px 50px 0 0;
+}
+.light-beam {
+    width: 200px;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(253, 224, 71, 0.3), rgba(253, 224, 71, 0));
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    transform: translateX(-60px);
+}
+
+/* Window & Moon */
+.window {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
+    border: 4px solid #334155;
+    background: #1e293b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.moon {
+    width: 40px;
+    height: 40px;
+    background: #fef08a;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    box-shadow: 0 0 15px #fef08a;
+}
+
+/* Main Content Typography */
+.main-content {
+    text-align: center;
+    padding-top: 100px;
+    position: relative;
+    z-index: 2;
+}
+.subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    color: #94a3b8;
+    margin-bottom: 5px;
+}
+.title {
+    font-size: 3.5rem;
+    color: #fef08a; /* කහ පාට Title එක */
+    font-weight: 700;
+}
+.sinhala-sub {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+/* Kottu Bowl Art */
+.bowl-container {
+    margin: 20px auto;
+}
+.steam {
+    font-size: 2.5rem;
+    animation: float 2s infinite ease-in-out;
+}
+.kottu-bowl {
+    width: 220px;
+    height: 110px;
+    background: linear-gradient(#ea580c, #9a3412);
+    margin: 0 auto;
+    border-radius: 0 0 110px 110px;
+    border: 8px solid #fef08a;
+    position: relative;
+    padding-top: 15px;
+}
+.cheese-layer {
+    font-size: 1.5rem;
+    display: block;
+}
+.ingredients {
+    font-size: 1.2rem;
+}
+
+/* Calculator Card */
+.calculator-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.input-group {
+    margin: 15px 0;
+}
+input {
+    padding: 5px;
+    width: 60px;
+    background: #0f172a;
+    color: white;
+    border: 1px solid #fef08a;
+    border-radius: 4px;
+    text-align: center;
+}
+.ingredients-list {
+    list-style: none;
+    text-align: left;
+    max-width: 200px;
+    margin: 0 auto;
+}
+.ingredients-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.ingredients-list span {
+    color: #fef08a;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); opacity: 0.5; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.5; }
+}
